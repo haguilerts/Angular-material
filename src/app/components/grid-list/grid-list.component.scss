@@ -1,0 +1,17 @@
+mat-grid-tile {
+    background: rgb(207, 230, 9);
+}
+
+mat-grid-tile-header {
+    background: rgb(181, 194, 63);
+    width: 100%;
+    text-align: center;
+}
+
+mat-grid-tile-footer {
+    width: 100%;
+    text-align: center;
+    background: black;
+    color: azure;
+    padding-top: 3px;
+}

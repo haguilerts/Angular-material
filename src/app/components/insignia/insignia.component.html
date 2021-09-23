@@ -1,0 +1,17 @@
+<div class="d-flex flex-wrap w-100">
+    <span matBadge="4" matBadgeOverlap="false">mensajes</span>
+    <span matBadge="1" matBadgeSize="large">mis mensajes..</span>
+    <button mat-raised-button color="primary" matBadge="8" matBadgePosition="before" matBadgeColor="accent">
+        Action
+    </button>
+    <button mat-raised-button matBadge="7" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()">
+        Hide
+    </button>
+    <mat-icon matBadge="15" matBadgeColor="accent">home</mat-icon>
+
+</div>
+
+<!-- 
+    matBadgeSize:small, medium and large
+    matBadgeColor:primary, accent, warn.
+ -->

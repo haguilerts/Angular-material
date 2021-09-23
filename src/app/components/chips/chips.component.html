@@ -1,0 +1,22 @@
+<section>
+    <mat-chip-list aria-label="Fish selection">
+        <mat-chip>One </mat-chip>
+        <mat-chip>Two </mat-chip>
+        <mat-chip color="primary" selected>Primary </mat-chip>
+        <mat-chip color="warn" selected>warn selected </mat-chip>
+        <mat-chip color="warn" selectable>warn selectable</mat-chip>
+        <mat-chip> tree</mat-chip>
+        <mat-chip-list></mat-chip-list>
+    </mat-chip-list>
+    <mat-form-field class="example-chip-list w-100" appearance="fill">
+        <mat-label>Lenguaje de programacion favorita</mat-label>
+        <mat-chip-list #chipList class="d-flex flex-column" aria-label="Fruit selection">
+            <mat-chip *ngFor="let fruit of fruits" [selectable]="selectable" [removable]="removable" (removed)="remove(fruit)">
+                {{fruit.name}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+        </mat-chip-list>
+        <input class="d-block w-100 mt-2" placeholder="Añadir un lenguaje de programacion" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+    </mat-form-field>
+
+</section>

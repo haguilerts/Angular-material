@@ -1,0 +1,33 @@
+<section class="example-section">
+
+</section>
+<!-- 
+    labelPosition="before"
+    labelPosition="ofter"
+ -->
+<section class="example-section d-flex justify-content-around flex-wrap">
+    <span class="example-list-section border border-3 p-3 "> 
+        <mat-checkbox class="example-margin ">Check me!</mat-checkbox>
+        <mat-divider class="my-3"></mat-divider>
+        <mat-checkbox class="example-margin" labelPosition="before" [disabled]="true">Disabled</mat-checkbox>
+        <br>
+        <small> labelPosition="before" | labelPosition="ofter"</small>
+    </span>
+    <span class="example-list-section border border-3 p-2">
+      <mat-checkbox class="example-margin"
+        [checked]="allComplete" [color]="task.color"
+        (change)="setAll($event.checked)">
+        {{task.name}}
+      </mat-checkbox>
+   
+      <ul>
+        <li *ngFor="let subtask of task.subtasks">
+          <mat-checkbox [(ngModel)]="subtask.completed"
+                        [color]="subtask.color"
+                        (ngModelChange)="updateAllComplete()">
+            {{subtask.name}}
+          </mat-checkbox>
+        </li>
+      </ul>
+    </span>
+</section>

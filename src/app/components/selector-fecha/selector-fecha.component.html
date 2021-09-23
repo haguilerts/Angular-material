@@ -1,0 +1,129 @@
+<section class="d-flex justify-content-evenly flex-wrap">
+    <mat-form-field appearance="fill">
+        <mat-label>Elija una fecha</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Elija una siguiente fecha</mat-label>
+        <input matInput [matDatepicker]="picker1">
+        <mat-datepicker-toggle matSuffix [for]="picker1">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Ingrese un rango de fechas</mat-label>
+        <mat-date-range-input [rangePicker]="picker2">
+            <input matStartDate placeholder="Start date">
+            <input matEndDate placeholder="End date">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker2></mat-date-range-picker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Ingrese un rangoFechas en formulario</mat-label>
+        <mat-date-range-input [formGroup]="range" [rangePicker]="picker3">
+            <input matStartDate formControlName="start" placeholder="Start date">
+            <input matEndDate formControlName="end" placeholder="End date">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker3></mat-date-range-picker>
+
+        <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+        <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+    </mat-form-field>
+
+    <!-- ***************************************** -->
+    <p class="w-100 text-center">Selected range: {{range.value | json }} </p>
+    <mat-form-field appearance="fill">
+        <mat-label>fecha 1° añadir año</mat-label>
+        <input matInput [matDatepicker]="picker4">
+        <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+        <mat-datepicker #picker4 startView="multi-year" [startAt]="startDate"></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>fecha 1° añadir mes</mat-label>
+        <input matInput [matDatepicker]="picker5">
+        <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+        <mat-datepicker #picker5 startView="year" [startAt]="startDate"></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>mes y año</mat-label>
+        <input matInput [matDatepicker]="dp" [formControl]="date">
+        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp startView="multi-year" (yearSelected)="chosenYearHandler($event)" (monthSelected)="chosenMonthHandler($event, dp)" panelClass="example-month-picker">
+        </mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>max y min in Date</mat-label>
+        <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker44" [value]="date.value">
+        <mat-datepicker-toggle matSuffix [for]="picker44"></mat-datepicker-toggle>
+        <mat-datepicker #picker44 color="accent"></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>filter dias habiles - sab y dom</mat-label>
+        <input matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker5">
+        <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+        <mat-datepicker #picker5 startView="multi-year"></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <hr>
+    <mat-form-field appearance="fill">
+        <mat-label>calendario disabled</mat-label>
+        <input matInput [matDatepicker]="dp1" disabled>
+        <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+        <mat-datepicker #dp1></mat-datepicker>
+    </mat-form-field>
+
+
+
+    <mat-form-field appearance="fill">
+        <mat-label>icon disabled</mat-label>
+        <input matInput [matDatepicker]="dp2">
+        <mat-datepicker-toggle matSuffix [for]="dp2" disabled></mat-datepicker-toggle>
+        <mat-datepicker #dp2></mat-datepicker>
+    </mat-form-field>
+
+
+
+    <mat-form-field appearance="fill">
+        <mat-label>textInput disabled</mat-label>
+        <input matInput [matDatepicker]="dp3" disabled>
+        <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+        <mat-datepicker #dp3 disabled="false">
+            <mat-datepicker-actions>
+                <button mat-button matDatepickerCancel>Cancel</button>
+                <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+            </mat-datepicker-actions>
+        </mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Primera campaña</mat-label>
+        <mat-date-range-input [formGroup]="campaignOne" [rangePicker]="campaignOnePicker" [comparisonStart]="campaignTwo.value.start" [comparisonEnd]="campaignTwo.value.end">
+            <input matStartDate placeholder="Start date" formControlName="start">
+            <input matEndDate placeholder="End date" formControlName="end">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="campaignOnePicker"></mat-datepicker-toggle>
+        <mat-date-range-picker #campaignOnePicker startView="month"></mat-date-range-picker>
+    </mat-form-field>
+
+    <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Segunda campaña</mat-label>
+        <mat-date-range-input [formGroup]="campaignTwo" [rangePicker]="campaignTwoPicker" [comparisonStart]="campaignOne.value.start" [comparisonEnd]="campaignOne.value.end">
+            <input matStartDate placeholder="Start date" formControlName="start">
+            <input matEndDate placeholder="End date" formControlName="end">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="campaignTwoPicker"></mat-datepicker-toggle>
+        <mat-date-range-picker #campaignTwoPicker startView="month"></mat-date-range-picker>
+    </mat-form-field>
+
+
+
+</section>

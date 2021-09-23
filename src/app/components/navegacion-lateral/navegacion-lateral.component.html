@@ -1,0 +1,90 @@
+<section>
+
+    <article>
+        <mat-sidenav-container class="example-container" *ngIf="shouldRun">
+            <mat-sidenav mode="side" opened>Bienvenido...</mat-sidenav>
+            <mat-sidenav-content class="text-center">Main content</mat-sidenav-content>
+        </mat-sidenav-container>
+
+        <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>
+
+    </article>
+    <article>
+        <mat-sidenav-container class="example-container text-center" *ngIf="shouldRun">
+            <mat-sidenav opened mode="side">Start content</mat-sidenav>
+            <mat-sidenav opened mode="side" [position]="'end'">End content</mat-sidenav>
+            Implicit main content
+        </mat-sidenav-container>
+
+        <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>
+
+    </article>
+    <article>
+        <mat-drawer-container class="example-container" [hasBackdrop]="hasBackdrop.value">
+            <mat-drawer #drawer [mode]="mode.value">
+                <h3>Bienvenido</h3>
+                <img class="" style="width: 100px; height: auto;" src="https://myjoyofcoding.com/wp-content/uploads/2020/07/list.png" alt="...">
+            </mat-drawer>
+            <mat-drawer-content>
+                <mat-form-field appearance="fill">
+                    <mat-label>medio de entrada</mat-label>
+                    <mat-select #mode value="side">
+                        <mat-option value="side">Empuja Lateral</mat-option>
+                        <mat-option value="over">Sobre Enseima</mat-option>
+                        <mat-option value="push">Empujar sombreado</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Activar sombreado superficial</mat-label>
+                    <mat-select #hasBackdrop>
+                        <mat-option>Unset</mat-option>
+                        <mat-option [value]="true">True</mat-option>
+                        <mat-option [value]="false">False</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div class="d-flex">
+                    <button mat-raised-button (click)="drawer.open()">Abrir</button>
+                    <button mat-raised-button (click)="drawer.close()">Cerra</button>
+                    <button mat-raised-button (click)="drawer.toggle()">openClose</button>
+                </div>
+
+            </mat-drawer-content>
+        </mat-drawer-container>
+
+    </article>
+
+</section>
+<section class="w-100">
+
+    <article class="w-100">
+        <div class="example-container w-100" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
+            <mat-toolbar color="primary" class="example-toolbar">
+                <button class="me-auto" mat-icon-button (click)="isquierda.toggle()"><mat-icon>menu</mat-icon></button>
+                <h1 class="example-app-name">Responsive App</h1>
+                <button class="ms-auto" mat-icon-button (click)="derecha.toggle()"><mat-icon>home</mat-icon></button>
+            </mat-toolbar>
+
+            <mat-sidenav-container [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+                <mat-sidenav #isquierda [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+                    <mat-nav-list>
+                        <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a>
+                    </mat-nav-list>
+                </mat-sidenav>
+
+                <mat-sidenav panelClass="primary" #derecha [position]="'end'" [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+                    <mat-nav-list>
+                        <a mat-list-item routerLink="." *ngFor="let nav of fillerNav">{{nav}}</a>
+                    </mat-nav-list>
+                </mat-sidenav>
+
+                <mat-sidenav-content>
+                    <p *ngFor="let content of fillerContent">{{content}}</p>
+                </mat-sidenav-content>
+            </mat-sidenav-container>
+        </div>
+
+        <div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>
+
+    </article>
+
+</section>

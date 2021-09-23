@@ -1,0 +1,14 @@
+<label class="d-flex  justify-content-evenly ">
+    <mat-form-field class="col-4">
+        <mat-label>cual es tu nombre?</mat-label>
+        <input matInput [(ngModel)]="name">
+    </mat-form-field>
+    <mat-divider [vertical]="true"></mat-divider>
+    <mat-form-field class="col-4" >
+        <mat-label>cual es tu Apellido?</mat-label>
+        <input matInput [(ngModel)]="surname">
+    </mat-form-field>
+</label>
+<p class="text-center" *ngIf="edad"> Edad: {{edad}} años!</p>
+<mat-divider [inset]="true"></mat-divider>
+<button class="w-100" mat-raised-button color="primary" (click)="openDialog( )">Abrir</button>

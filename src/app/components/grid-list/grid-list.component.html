@@ -1,0 +1,52 @@
+<section>
+    <mat-grid-tile-header> mat-grid-tile-header </mat-grid-tile-header>
+
+    <mat-grid-list cols="5" rowHeight="2:1">
+        <mat-grid-tile>mat-grid-tile</mat-grid-tile>
+        <mat-grid-tile>1</mat-grid-tile>
+        <mat-grid-tile>2</mat-grid-tile>
+        <mat-grid-tile>3</mat-grid-tile>
+        <mat-grid-tile>4</mat-grid-tile>
+        <mat-grid-tile>5</mat-grid-tile>
+        <mat-grid-tile>6</mat-grid-tile>
+        <mat-grid-tile>7</mat-grid-tile>
+        <mat-grid-tile>8</mat-grid-tile>
+        <mat-grid-tile>9</mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-tile-footer>mat-grid-tile-footer </mat-grid-tile-footer>
+
+</section>
+<section>
+    <mat-grid-list cols="4" rowHeight="100px">
+        <mat-grid-tile *ngFor="let tile of tiles" [colspan]="tile.cols" [rowspan]="tile.rows" [style.background]="tile.color">
+            {{tile.text}}
+        </mat-grid-tile>
+    </mat-grid-list>
+
+</section>
+<section class="mt-4">
+    <mat-grid-list cols="2" rowHeight="100px">
+        <mat-grid-tile [style]="'color:white;'+'background:blue'">Tile 1 (no header, no footer)</mat-grid-tile>
+
+        <mat-grid-tile [style]="'color:blue;'+'background:yellow'">
+            <mat-grid-tile-header>Tile 2 header</mat-grid-tile-header>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium sed, ab neque doloribus ea perspiciatis libero cumque incidun
+
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2" rowspan="2">
+            <mat-grid-tile-header>Tile 3 header</mat-grid-tile-header>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium sed, ab neque doloribus ea perspiciatis libero cumque incidun
+            <img matCardImage class="w-50 h-auto" src="https://pm1.narvii.com/6848/b5c9a87d982aeea894649cae974de958ed733909v2_hq.jpg" alt="..."> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium sed, ab neque doloribus ea perspiciatis
+            libero Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium sed, ab neque doloribus ea perspiciatis libero cumque incidun cumque incidun.
+
+            <mat-grid-tile-footer>Tile 3 footer</mat-grid-tile-footer>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat odio itaque dolor alias, aperiam excepturi provident, officiis consequatur consequuntur reprehenderit dolorem totam, molestiae dolore amet eaque! Asperiores corrupti a impedit.
+            <mat-grid-tile-footer>Tile 4 footer</mat-grid-tile-footer>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+</section>

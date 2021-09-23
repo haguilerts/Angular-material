@@ -1,0 +1,203 @@
+<article class="content">
+    <section>
+        <h3 class="example-label">Basicos | mat-button</h3>
+        <div class="basico example-button-row">
+            <button mat-button>Basic</button>
+            <button mat-button color="primary">Primary</button>
+            <button mat-button color="accent">Accent</button>
+            <button mat-button color="warn">Warn</button>
+            <button mat-button disabled>Disabled</button>
+            <a mat-button href="https://www.google.com/" target="_blank">Link</a>
+        </div>
+    </section>
+    <mat-divider></mat-divider>
+
+    <section>
+        <h3 class="example-label">Raised | mat-raised-button</h3>
+        <div class="raised example-button-row">
+            <button mat-raised-button>Basic</button>
+            <button mat-raised-button color="primary">Primary</button>
+            <button mat-raised-button color="accent">Accent</button>
+            <button mat-raised-button color="warn">Warn</button>
+            <button mat-raised-button disabled>Disabled</button>
+            <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
+        </div>
+    </section>
+    <mat-divider></mat-divider>
+    <section>
+        <h3 class="example-label">Stroked | mat-stroked-button</h3>
+        <div class="example-button-row">
+            <button mat-stroked-button>Basic</button>
+            <button mat-stroked-button color="primary">Primary</button>
+            <button mat-stroked-button color="accent">Accent</button>
+            <button mat-stroked-button color="warn">Warn</button>
+            <button mat-stroked-button disabled>Disabled</button>
+            <a mat-stroked-button href="https://www.google.com/" target="_blank">Link</a>
+        </div>
+    </section>
+    <mat-divider></mat-divider>
+    <section>
+        <h3 class="example-label">Flat | mat-flat-button</h3>
+        <div class="example-button-row">
+            <button mat-flat-button>Basic</button>
+            <button mat-flat-button color="primary">Primary</button>
+            <button mat-flat-button color="accent">Accent</button>
+            <button mat-flat-button color="warn">Warn</button>
+            <button mat-flat-button disabled>Disabled</button>
+            <a mat-flat-button href="https://www.google.com/" target="_blank">Link</a>
+        </div>
+    </section>
+    <mat-divider></mat-divider>
+    <section>
+        <h3 class="example-label">Icon | mat-icon-button -> mat-icon </h3>
+        <div class="example-button-row">
+            <div class="example-flex-container">
+                <button mat-icon-button>
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <button mat-icon-button color="primary">
+                    <mat-icon>home</mat-icon>
+                </button>
+                <button mat-icon-button color="accent">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <button mat-icon-button color="warn">
+                    <mat-icon>favorite</mat-icon>
+                </button>
+                <button mat-icon-button disabled>
+                    <mat-icon>open_in_new</mat-icon>
+                </button>
+            </div>
+        </div>
+    </section>
+    <mat-divider></mat-divider>
+    <section>
+        <h3 class="example-label">FAB | mat-fab</h3>
+        <div class="example-button-row">
+            <div class="example-flex-container">
+                <div class="example-button-container">
+                    <button mat-fab color="primary">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+                <div class="example-button-container">
+                    <button mat-fab color="accent">
+                            <mat-icon>bookmark</mat-icon>
+                        </button>
+                </div>
+                <div class="example-button-container">
+                    <button mat-fab color="warn">
+                            <mat-icon>home</mat-icon>
+                        </button>
+                </div>
+                <div class="example-button-container">
+                    <button mat-fab disabled>
+                        <mat-icon>favorite</mat-icon>
+                    </button>
+                </div>
+                <div class="example-button-container">
+                    <a mat-flat-button href="https://fonts.google.com/icons" target="_blank">
+                        <button mat-fab>
+                            <mat-icon>new_label</mat-icon>
+                        </button>
+                        <strong>mas iconos..</strong>
+                    </a>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <mat-divider></mat-divider>
+    <section>
+        <h3 class="example-label">Mini FAB | mat-mini-fab</h3>
+        <div class="example-button-row">
+            <div class="example-flex-container">
+                <div class="example-button-container">
+                    <button mat-mini-fab color="primary">
+                <mat-icon>menu</mat-icon>
+              </button>
+                </div>
+                <div class="example-button-container">
+                    <button mat-mini-fab color="accent">
+                <mat-icon>plus_one</mat-icon>
+              </button>
+                </div>
+                <div class="example-button-container">
+                    <button mat-mini-fab color="warn">
+                <mat-icon>filter_list</mat-icon>
+              </button>
+                </div>
+                <div class="example-button-container">
+                    <button mat-mini-fab disabled>
+                <mat-icon>home</mat-icon>
+              </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <mat-divider></mat-divider>
+    <!-- 
+Atributo	        Descripción
+mat-button	        Botón de texto rectangular sin elevación
+mat-raised-button	Botón rectangular contenido con elevación
+mat-flat-button	    Botón contenido rectangular sin elevación
+mat-stroked-button	Botón rectangular con contorno sin elevación
+mat-icon-button	    Botón circular con fondo transparente, destinado a contener un icono
+mat-fab	            Botón circular con elevación, predeterminado al color de acento del tema
+mat-mini-fab	    Igual que mat-fabpero más pequeño
+     -->
+    <h2> btn alternables</h2>
+    <section class="d-flex justify-content-lg-around">
+        <p>
+            <strong>Default appearance:</strong>
+            <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+                <mat-button-toggle value="bold">Bold</mat-button-toggle>
+                <mat-button-toggle value="italic">Italic</mat-button-toggle>
+                <mat-button-toggle value="underline">Underline</mat-button-toggle>
+            </mat-button-toggle-group>
+        </p>
+
+        <p>
+            <strong> Legacy appearance:</strong>
+            <mat-button-toggle-group appearance="legacy" name="fontStyle" aria-label="Font Style">
+                <mat-button-toggle value="bold">Bold</mat-button-toggle>
+                <mat-button-toggle value="italic">Italic</mat-button-toggle>
+                <mat-button-toggle value="underline">Underline</mat-button-toggle>
+            </mat-button-toggle-group>
+        </p>
+
+    </section>
+</article>
+<h2 class="text-center">mat-radio-group - mat-radio-button</h2>
+<article class="d-flex justify-content-evenly">
+    <mat-radio-group aria-label="Select an option">
+        <mat-radio-button value="1">Option 1</mat-radio-button>
+        <mat-radio-button value="2">Option 2</mat-radio-button>
+    </mat-radio-group>
+    <mat-radio-group name="flavors">
+        <mat-radio-button value="chocolate" checked="true">Chocolate</mat-radio-button>
+        <mat-radio-button value="vanilla">Vanilla</mat-radio-button>
+        <mat-radio-button value="strawberry">Strawberry</mat-radio-button>
+    </mat-radio-group>
+
+
+
+</article>
+<div class="d-flex flex-column align-items-center">
+    <label id="example-radio-group-label">Elige tu estación favorita</label>
+    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="favoriteSeason">
+        <mat-radio-button class="example-radio-button" *ngFor="let items of seasons" [value]="items">
+            {{items.color}}
+        </mat-radio-button>
+    </mat-radio-group>
+    <div color="favoriteSeason.color">Tu estación favorita es: {{favoriteSeason.color}}</div>
+
+</div>
+<h2 class="text-center">mat-checkbox</h2>
+<div class="d-flex justify-content-evenly align-items-center my-2">
+    <mat-checkbox [(ngModel)]="centered" class="example-ripple-checkbox">Centered</mat-checkbox>
+    <mat-checkbox [(ngModel)]="disabled" class="example-ripple-checkbox">Disabled</mat-checkbox>
+    <mat-checkbox [(ngModel)]="unbounded" class="example-ripple-checkbox">Unbounded</mat-checkbox>
+
+</div>

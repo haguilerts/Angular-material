@@ -1,27 +1,36 @@
 # AngularMaterial
+links:
+* https://material.angular.io/guide/getting-started
+* https://material.io/design/color/dark-theme.html#properties
+* https://www.npmjs.com/package/@angular/cli
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
+# pasos a seguir:
+sudo npm install -g @angular/cli@latest
+ng new new-proyect
+ng add @angular/material
+ng g module angular-material
+npm i @angular/material-moment-adapter
+npm i moment
+https://www.positronx.io/create-angular-material-8-custom-theme/
 
-## Development server
+# iconos 
+https://material.io/resources
+https://fonts.google.com/icons
+## guia
+https://www.digitalocean.com/community/tags/angularjs
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## fontawesome
+https://fontawesome.com/v5.15/how-to-use/on-the-web/styling/animating-icons
+https://boxicons.com/
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# Data: 
+Component	ng g component my-new-component
+Directive	ng g directive my-new-directive
+Pipe	    ng g pipe my-new-pipe
+Service	    ng g service my-new-service
+Class	    ng g class my-new-class
+Guard	    ng g guard my-new-guard
+Interface	ng g interface my-new-interface
+Enum	    ng g enum my-new-enum
+Module	    ng g module my-module

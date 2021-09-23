@@ -1,0 +1,14 @@
+<mat-dialog-content class="mat-typography ">
+    <h2 mat-dialog-title>Bienvenido {{data.name}}, {{data.surname}}</h2>
+    <h3 mat-dialog-title> Que edad tienes?? </h3> <br>
+    <mat-form-field appearance="fill">
+        <mat-label>-Edad?</mat-label>
+        <input matInput [(ngModel)]="data.edad">
+    </mat-form-field>
+</mat-dialog-content>
+<mat-divider></mat-divider>
+<mat-divider [inset]="true"></mat-divider>
+<mat-dialog-actions align="end" class="my-1">
+    <button mat-button mat-dialog-close (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="data">ingresar</button>
+</mat-dialog-actions>

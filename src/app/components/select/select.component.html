@@ -1,0 +1,227 @@
+<section>
+    <div class="d-flex justify-content-around">
+        <mat-form-field appearance="fill">
+            <mat-label>Select an option</mat-label>
+            <mat-select [(value)]="selected">
+                <mat-option>None</mat-option>
+                <mat-option value="option1">Option 1</mat-option>
+                <mat-option value="option2">Option 2</mat-option>
+                <mat-option value="option3">Option 3</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <p>Mostrar Seleccionado: <strong>{{selected}}</strong> </p>
+    </div>
+
+    <mat-divider></mat-divider>
+    <h3 class="text-center fw-bold">mat-select && mat-form-field</h3>
+
+    <form class="d-flex justify-content-around ">
+        <div class="border border-2 border-primary text-center">
+            <h4 class="fw-bold">mat-select</h4>
+            <mat-form-field appearance="fill">
+                <mat-label>Favorite food</mat-label>
+                <mat-select [(ngModel)]="selectedValue" name="food">
+                    <mat-option *ngFor="let food of foods" [value]="food.value">
+                        {{food.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <p> Selected food: <strong>{{selectedValue}}</strong> </p>
+        </div>
+
+        <mat-divider></mat-divider>
+        <div class="border border-5 text-center">
+            <h4 class="fw-bold">native html select</h4>
+            <mat-form-field appearance="fill">
+                <mat-label>Favorite car</mat-label>
+                <select matNativeControl [(ngModel)]="selectedCar" name="car">
+            <option value="" selected></option>
+            <option *ngFor="let car of cars" [value]="car.value">
+              {{car.viewValue}}
+            </option>
+          </select>
+            </mat-form-field>
+            <p> Selected car: <strong>{{selectedCar}}</strong> </p>
+        </div>
+    </form>
+    <mat-divider></mat-divider>
+    <h3 class="text-center fw-bold">mat-select && formControl</h3>
+    <p class="text-center">
+        <mat-checkbox [formControl]="disableSelect">Disable select</mat-checkbox>
+    </p>
+    <article>
+        <div class="border border-2 border border-primary">
+            <h4>mat select</h4>
+            <mat-form-field appearance="fill">
+                <mat-label>Favorite animal</mat-label>
+                <mat-select [disabled]="disableSelect.value" [formControl]="animalControl" required>
+                    <mat-option>--</mat-option>
+                    <mat-option *ngFor="let animal of animals" [value]="animal">
+                        {{animal.name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="animalControl.hasError('required')">Please choose an animal</mat-error>
+                <mat-hint>{{animalControl.value?.sound}}</mat-hint>
+            </mat-form-field>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <div class="border border-5">
+            <h4>native html select</h4>
+            <mat-form-field appearance="fill">
+                <mat-label>Select your car (required)</mat-label>
+                <select matNativeControl required [formControl]="selectFormControl" [disabled]="disableSelect.value">
+                    <option label="--select something --"></option>
+                    <option value="saab">Saab</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="audi">Audi</option>
+                </select>
+                <mat-error *ngIf="selectFormControl.hasError('required')">
+                    Este campo es obligatorio
+                </mat-error>
+                <mat-hint>Puedes recoger tu coche favorito aquí</mat-hint>
+            </mat-form-field>
+        </div>
+        <mat-divider></mat-divider>
+
+
+    </article>
+    <mat-divider></mat-divider>
+    <h3 class="text-center fw-bold">mat-select && mat-optgroup</h3>
+
+    <article class="d-flex justify-content-evenly">
+        <div class="border border-2 border-secondary">
+            <h4>mat-select</h4>
+            <mat-form-field appearance="fill">
+                <mat-label>Pokemon</mat-label>
+                <mat-select [formControl]="pokemonControl">
+                    <mat-option>-- None --</mat-option>
+                    <mat-optgroup *ngFor="let group of pokemonGroups" [label]="group.name" [disabled]="group.disabled">
+                        <mat-option *ngFor="let pokemon of group.pokemon" [value]="pokemon.value">
+                            {{pokemon.viewValue}}
+                        </mat-option>
+                    </mat-optgroup>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="border border-5">
+            <h4>native html select</h4>
+            <mat-form-field appearance="fill">
+                <mat-label>Cars</mat-label>
+                <select matNativeControl>
+                    <optgroup label="Swedish Cars">
+                        <option value="volvo">volvo</option>
+                        <option value="saab">Saab</option>
+                    </optgroup>
+                    <optgroup label="German Cars">
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                    </optgroup>
+                </select>
+            </mat-form-field>
+        </div>
+    </article>
+
+    <mat-divider></mat-divider>
+    <h3 class="text-center fw-bold">mat-select && Multiple </h3>
+
+    <article>
+        <div>
+            <h5>mat-option</h5>
+            <mat-form-field appearance="fill">
+                <mat-label>Dias de la semana</mat-label>
+                <mat-select [formControl]="toppings" multiple>
+                    <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <h5>mat-select-trigger</h5>
+            <mat-form-field appearance="fill">
+                <mat-label>Toppings</mat-label>
+                <mat-select [formControl]="toppings" multiple>
+                    <mat-select-trigger>
+                        {{toppings.value ? toppings.value[0] : ''}}
+                        <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+                      (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+                    </span>
+                    </mat-select-trigger>
+                    <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </div>
+        <div>
+            <h5>disable Ripple (deshabilitando Ripples)</h5>
+            <mat-form-field appearance="fill">
+                <mat-label>Select an option</mat-label>
+                <mat-select disableRipple>
+                    <mat-option value="1">Option 1</mat-option>
+                    <mat-option value="2">Option 2</mat-option>
+                    <mat-option value="3">Option 3</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </div>
+        <div>
+            <h5> mat-select / panelClass</h5>
+            <mat-form-field appearance="fill">
+                <mat-label>Panel color</mat-label>
+                <mat-select [formControl]="panelColor" panelClass="example-panel-{{panelColor.value}}">
+                    <mat-option value="red">Red</mat-option>
+                    <mat-option value="green">Green</mat-option>
+                    <mat-option value="blue">Blue</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </article>
+
+    <mat-divider></mat-divider>
+    <h3 class="text-center fw-bold">mat-select && mensajes de error </h3>
+
+
+    <article>
+        <div>
+            <h4>mat-select</h4>
+            <mat-form-field appearance="fill">
+                <mat-label>Choose one</mat-label>
+                <mat-select [formControl]="selected1" [errorStateMatcher]="matcher">
+                    <mat-option>Clear</mat-option>
+                    <mat-option value="valid">Valid option</mat-option>
+                    <mat-option value="invalid">Invalid option</mat-option>
+                </mat-select>
+                <mat-hint>Errors appear instantly!</mat-hint>
+                <mat-error *ngIf="selected1.hasError('required')">You must make a selection</mat-error>
+                <mat-error *ngIf="selected1.hasError('pattern') && !selected1.hasError('required')">
+                    Your selection is invalid
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <h4>native html select</h4>
+            <mat-form-field class="demo-full-width" appearance="fill">
+                <mat-label>Choose one</mat-label>
+                <select matNativeControl [formControl]="nativeSelectFormControl" [errorStateMatcher]="matcher">
+                    <option value=""></option>
+                    <option value="valid" selected1>Valid option</option>
+                    <option value="invalid">Invalid option</option>
+                </select>
+                <mat-error *ngIf="nativeSelectFormControl.hasError('required')">You must make a selection</mat-error>
+                <mat-error *ngIf="nativeSelectFormControl.hasError('pattern') && !nativeSelectFormControl.hasError('required')">
+                    Your selection is invalid
+                </mat-error>
+            </mat-form-field>
+
+        </div>
+    </article>
+
+
+
+
+</section>
+
+<!-- 
+    Tanto <mat-select>y <select>soportar todas las directivas de formulario desde el núcleo FormsModule( NgModel) y ReactiveFormsModule( FormControl, FormGroup, etc.) Como con nativo <select>, <mat-select> también es compatible con una compareWithfunción.
+ -->

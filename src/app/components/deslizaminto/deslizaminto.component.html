@@ -1,0 +1,109 @@
+<h3 class="text-center fw-bold">mat-slider</h3>
+<section>
+    <article class="flex-row">
+        <mat-slider class="w-25" vertical></mat-slider>
+        <mat-slider class="w-25" invert vertical></mat-slider>
+    </article>
+    <article>
+        <aside>
+            <mat-slider aria-label="unit(s)"></mat-slider>
+            <small>mat-slider</small>
+        </aside>
+        <aside>
+            <mat-slider min="1" max="50" step="1" value="2"></mat-slider>
+            <small> min="1" max="50" step="1" value="2" </small>
+        </aside>
+        <aside>
+            <mat-slider invert></mat-slider>
+            <small>invert</small>
+        </aside>
+    </article>
+    <article>
+        <aside>
+            <mat-slider thumbLabel tickInterval="5"></mat-slider>
+            <small>thumbLabel(indicePosicion) tickInterval(salto)="5"</small>
+        </aside>
+        <aside>
+            <mat-slider step="2" tickInterval="5"></mat-slider>
+            <small>step="2" tickInterval="5"</small>
+        </aside>
+        <aside>
+            <mat-slider tickInterval="auto"></mat-slider>
+            <small>tickInterval="auto"</small>
+        </aside>
+        <aside>
+            <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="10" step="1000" min="0" max="100000" aria-label="units"></mat-slider>
+            <small>[displayWith]=formatLabel tickInterval="10" step="1000" min="0" max="100000"</small>
+        </aside>
+    </article>
+    <article>
+        <aside>
+            <mat-card>
+                <mat-card-content>
+                    <h2 class="example-h2 text-center">Slider configuracion Perosonal</h2>
+
+                    <section class="example-section d-flex  justify-content-around">
+                        <mat-form-field class="example-margin" appearance="fill">
+                            <mat-label>Value</mat-label>
+                            <input matInput type="number" [(ngModel)]="value">
+                        </mat-form-field>
+                        <mat-form-field class="example-margin" appearance="fill">
+                            <mat-label>Min value</mat-label>
+                            <input matInput type="number" [(ngModel)]="min">
+                        </mat-form-field>
+                        <mat-form-field class="example-margin" appearance="fill">
+                            <mat-label>Max value</mat-label>
+                            <input matInput type="number" [(ngModel)]="max">
+                        </mat-form-field>
+                        <mat-form-field class="example-margin" appearance="fill">
+                            <mat-label>Step size</mat-label>
+                            <input matInput type="number" [(ngModel)]="step">
+                        </mat-form-field>
+                    </section>
+                    <div class="d-flex justify-content-between">
+                        <section class="example-section d-flex flex-column">
+                            <mat-checkbox class="example-margin" [(ngModel)]="showTicks">Show ticks</mat-checkbox>
+                            <mat-checkbox class="example-margin" [(ngModel)]="autoTicks" *ngIf="showTicks">
+                                Auto ticks
+                            </mat-checkbox>
+                            <mat-form-field class="example-margin" appearance="fill" *ngIf="showTicks && !autoTicks">
+                                <mat-label>Tick interval</mat-label>
+                                <input matInput type="number" [(ngModel)]="tickInterval">
+                            </mat-form-field>
+                        </section>
+
+                        <section class="example-section">
+                            <mat-checkbox class="example-margin" [(ngModel)]="thumbLabel">Show thumb label</mat-checkbox>
+                        </section>
+
+                        <section class="example-section">
+                            <mat-checkbox class="example-margin mx-3" [(ngModel)]="vertical">Vertical</mat-checkbox>
+                            <mat-checkbox class="example-margin" [(ngModel)]="invert">Inverted</mat-checkbox>
+                        </section>
+
+                        <section class="example-section">
+                            <mat-checkbox class="example-margin" [(ngModel)]="disabled">Disabled</mat-checkbox>
+                        </section>
+                    </div>
+
+
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card class="example-result-card">
+                <mat-card-content>
+                    <h2>Result</h2>
+                    <div class="example-label-container" [class]="vertical ? 'example-label-vertical' : 'example-label-horizontal'">
+                        <label id="example-name-label" class="example-name-label"> Value: {{value}}</label>
+                    </div>
+                    <mat-slider class="example-margin" [disabled]="disabled" [invert]="invert" [max]="max" [min]="min" [step]="step" [thumbLabel]="thumbLabel" [tickInterval]="getSliderTickInterval()" [(ngModel)]="value" [vertical]="vertical" aria-labelledby="example-name-label">
+                    </mat-slider>
+                </mat-card-content>
+            </mat-card>
+
+        </aside>
+
+    </article>
+
+
+</section>

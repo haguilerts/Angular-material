@@ -1,0 +1,47 @@
+<section class="content row">
+    <mat-expansion-panel hideToggle class="col-5">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                modelos de Autos
+            </mat-panel-title>
+            <mat-panel-description>
+                Hilux 4x4 2012
+                <mat-icon class="ms-auto"> close_fullscreen</mat-icon>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <img class="w-75 text-center " matCardImageLarge src="https://acroadtrip.blob.core.windows.net/catalogo-imagenes/m/RT_V_a8fd8ae2ee0b4f3d896f9cf0fe1667bd.jpg" alt="..">
+        <p>La nueva Toyota Hilux continúa con el legado pero se transforma para seguir siendo líder. </p>
+        <mat-action-row>
+            <button mat-button color="primary" (click)="nextStep()">siguiente</button>
+        </mat-action-row>
+    </mat-expansion-panel>
+
+    <mat-accordion class="example-headers-align" multi class="col-5">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    El Bugatti Chiron
+                </mat-panel-title>
+                <mat-panel-description>
+                    4x4 extremo!
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <ng-template matExpansionPanelContent>
+                <p> El Bugatti Chiron se convierte en... ¡un 4x4 extremo!</p>
+                <img class="w-100 text-center d-block" src="https://cdn.motor1.com/images/mgl/M2E2m/s3/bugatti-chiron-off-road-render.jpg" alt="..">
+                <small>Todavía tenemos en mente el espectacular render del Bugatti Divo Shooting Brake, pero ahora ponemos la mirada en otra recreación digna de admiración. Se trata de un Chiron transformado en... ¡un 4x4 salvaje! Desde luego, la imagen habla por sí sola, ¿no crees?</small>
+            </ng-template>
+        </mat-expansion-panel>
+    </mat-accordion>
+    <mat-expansion-panel disabled hideToggle class="col-12 border border-1 my-1">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                panel deshabilitado
+            </mat-panel-title>
+            <mat-panel-description>
+                disabled
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+    </mat-expansion-panel>
+</section>

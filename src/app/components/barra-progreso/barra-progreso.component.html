@@ -1,0 +1,40 @@
+<section>
+    <h2 class="text-center">mat-progress</h2>
+    <article>
+        <p color="accent"> mode="determinate" | color="accent" | value="45"</p>
+        <mat-progress-bar mode="determinate" value="45" color="accent"></mat-progress-bar>
+    </article>
+    <article>
+        <p color="accent"> mode="indeterminate" | color="warn"</p>
+        <mat-progress-bar mode="indeterminate" color="warn"></mat-progress-bar>
+    </article>
+    <article>
+        <p color="accent"> mode="buffer" </p>
+        <mat-progress-bar mode="buffer"></mat-progress-bar>
+    </article>
+    <article>
+        <p color="accent"> mode="query" </p>
+        <mat-progress-bar mode="query"></mat-progress-bar>
+    </article>
+</section>
+<h2 class="text-center">mat-spinner</h2>
+<section class="d-flex justify-content-around flex-wrap">
+    <div>
+        <mat-spinner></mat-spinner>
+    </div>
+    <div>
+        <mat-spinner value="indeterminate" color="accent"></mat-spinner>
+        <small>value="indeterminate" | color="accent"</small>
+    </div>
+    <div>
+        <mat-spinner value="determinate" color="warn"></mat-spinner>
+        <small>value="determinate" | color="warn"</small>
+
+    </div>
+    <div>
+
+        <mat-progress-spinner [value]="50"></mat-progress-spinner>
+        <small>[value]="50"</small>
+
+    </div>
+</section>

@@ -1,0 +1,29 @@
+<section>
+    <mat-toolbar color="primary">
+        <mat-toolbar-row class="nav-top">
+            <small>info..</small>
+        </mat-toolbar-row>
+        <mat-toolbar-row>
+            <button mat-icon-button class="example-icon " aria-label="Example icon-button with menu icon">
+                <mat-icon>menu</mat-icon>
+              </button>
+
+            <span class="ms-auto">home</span>
+
+            <span class="example-spacer"></span>
+
+            <button mat-icon-button> eventos</button>
+
+            <button mat-icon-button>  login  </button>
+            <button mat-icon-button [matMenuTriggerFor]="menu">Otros</button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>item1</button>
+                <button mat-menu-item>item2</button>
+
+            </mat-menu>
+
+            <span class="example-spacer"></span>
+        </mat-toolbar-row>
+    </mat-toolbar>
+
+</section>

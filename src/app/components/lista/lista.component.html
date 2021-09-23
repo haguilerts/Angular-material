@@ -1,0 +1,223 @@
+<section class="d-flex justify-content-start flex-wrap">
+    <mat-list role="list">
+        <mat-list-item role="listitem">Item 1</mat-list-item>
+        <mat-list-item role="listitem">Item 2</mat-list-item>
+        <mat-list-item role="listitem">Item 3</mat-list-item>
+    </mat-list>
+
+    <mat-nav-list class="d-flex ">
+        <mat-list-item role="listitem">
+            <a matLine>Item_1</a>
+        </mat-list-item>
+        <mat-list-item role="listitem">
+            <button mat-icon-button color="primary" class="flex-baseline">
+                <mat-icon>home</mat-icon>_Inicio
+             </button>
+        </mat-list-item>
+        <mat-list-item role="listitem">Item_3</mat-list-item>
+    </mat-nav-list>
+
+    <mat-action-list>
+        <button mat-list-item class="text-primary border border-1 "> Save </button>
+        <button mat-list-item class="text-secondary border border-1"> update </button>
+    </mat-action-list>
+    <mat-selection-list #shoes>
+        <mat-list-option *ngFor="let item of ['item 1°',2,'item 3°']">
+            {{item}}
+            <mat-icon>in</mat-icon>
+        </mat-list-option>
+        <p>Options selected: {{shoes.selectedOptions.selected.length}} </p>
+
+    </mat-selection-list>
+    <mat-list denses>
+        <mat-list-item class="bd" *ngFor="let message of [{name:'gio',surname:'AGUI',age:25, domi:'codo123'},{name:'rho',surname:'Rojs',age:20, domi:'coca321'}]; let i=index ">
+            <img matListAvatar width="50px" src="https://laverdadnoticias.com/__export/1578096407796/sites/laverdad/img/2020/01/03/anime-_dragon_ball_super_no_tendrax_nuevos_episodios_hasta_el_2021.jpg_423682103.jpg" alt="..">
+            <p> {{i}} </p>
+            <p class="bd">
+                <span class="text-uppercase">  {{message.name}} </span>
+                <span class="text-lowercase"> -- {{message.surname}} </span>
+                <span matLine class="text-capitalize"> == {{message.domi}} </span>
+            </p>
+            <p matLine class="bd "> {{message.age}}</p>
+        </mat-list-item>
+    </mat-list>
+    <mat-list>
+        <h3 matSubheader>Folders</h3>
+        <mat-list-item *ngFor="let folder of [{name:'gio',updated:'123'}]">
+            <mat-icon matListIcon>folder</mat-icon>
+            <h4 matLine>{{folder.name}}</h4>
+            <p matLine class="demo-2"> {{folder.updated}} </p>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <h3 matSubheader>Notes</h3>
+        <mat-list-item *ngFor="let note of [{name:'kevin',updated:'22'}]">
+            <mat-icon matListIcon>note</mat-icon>
+            <h4 matLine>{{note.name}}</h4>
+            <p matLine class="demo-2"> {{note.updated}} </p>
+        </mat-list-item>
+    </mat-list>
+    <mat-nav-list>
+        <a mat-list-item role="navigation" aria-label="facebook">
+            <mat-icon>facebook</mat-icon>
+        </a>
+    </mat-nav-list>
+    <mat-selection-list>
+        <mat-list-option role="listbox" role="option">
+
+        </mat-list-option>
+    </mat-selection-list>
+</section>
+<section>
+    <div class="fa-3x">
+        <i class="fas fa-spinner fa-spin"></i>
+        <i class="fas fa-circle-notch fa-spin"></i>
+        <i class="fas fa-sync fa-spin"></i>
+        <i class="fas fa-cog fa-spin"></i>
+        <i class="fas fa-spinner fa-pulse"></i>
+        <i class="fas fa-stroopwafel fa-spin"></i>
+    </div>
+    <mat-nav-list>
+        <mat-selection-list class="row">
+            <mat-list class="d-flex bg-warning ">
+                <mat-list-item>
+                    <img matListAvatar src="https://png.pngtree.com/png-vector/20191004/ourlarge/pngtree-person-icon-png-image_1788612.jpg" alt="..">
+                </mat-list-item>
+                <mat-list-item>
+
+                </mat-list-item>
+                <mat-list-item class="d-flex flex-column">
+                    <button mat-icon-button color="primary"> 
+                        <mat-icon>home</mat-icon>
+                    </button>
+                    <small>Home</small>
+
+                </mat-list-item>
+                <mat-list-item>
+                    <a mat-list-item>
+                        <mat-icon>addchart</mat-icon>
+                    </a>
+                </mat-list-item>
+                <mat-list-item *ngFor="let i of [{icon:'not_started',color:'primary'},{icon:'production_quantity_limits',color:'warn'},{icon:'g_translate',color:'accent'}]">
+                    <mat-icon color="{{i.color}}">{{i.icon}}</mat-icon>
+                </mat-list-item>
+
+                <mat-list-item class="p-0 m-0">
+                    <button mat-button [matMenuTriggerFor]="menu">
+                        <mat-icon>toc</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu" yPosition="above" xPosition="after">
+                        <button mat-menu-item mat-icon-button [matMenuTriggerFor]="appMenus" [matMenuTriggerData]="{name: 'Giovanny'}">
+                            <mat-icon>manage_accounts</mat-icon>
+                        </button>
+                        <button mat-menu-item mat-icon-button [matMenuTriggerFor]="appMenus" [matMenuTriggerData]="{name: 'Kevin'}">
+                            <mat-icon>record_voice_over</mat-icon>
+                        </button>
+
+                        <button mat-menu-item>
+                            Backup <mat-icon>backup</mat-icon>
+                        </button>
+                        <button mat-menu-item>
+                            Phone <mat-icon>settings_phone</mat-icon>
+                        </button>
+                        <button mat-menu-item [matMenuTriggerFor]="animals">
+                            config <mat-icon>settings</mat-icon>
+                        </button>
+                        <button mat-menu-item [matMenuTriggerFor]="animals">
+                            cart <mat-icon>shopping_cart</mat-icon>
+                        </button>
+                        <button mat-menu-item [matMenuTriggerFor]="exit">
+                            exit <mat-icon>logout</mat-icon>
+                        </button>
+
+                    </mat-menu>
+
+
+                    <button mat-icon-button [matMenuTriggerFor]="appMenu">
+                        <mat-icon>more_vert</mat-icon>
+                        
+                    </button>
+
+
+
+
+                </mat-list-item>
+
+
+            </mat-list>
+        </mat-selection-list>
+    </mat-nav-list>
+</section>
+
+
+<mat-menu #appMenus="matMenu">
+    <ng-template matMenuContent let-name="name">
+        <button mat-menu-item>Usuario</button>
+        <button mat-menu-item>name is: <strong>{{name}}</strong> </button>
+    </ng-template>
+</mat-menu>
+
+<!-- /////////////////////////////////////////// -->
+<mat-menu #appMenu="matMenu">
+    <ng-template matMenuContent>
+        <button mat-menu-item>Ajustes</button>
+        <button mat-menu-item>Ayuda</button>
+
+    </ng-template>
+</mat-menu>
+<!-- ******************************************************* -->
+<mat-menu #animals="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="vertebrates">Vertebrates</button>
+    <button mat-menu-item [matMenuTriggerFor]="exitIcon">Invertebrates</button>
+</mat-menu>
+
+<mat-menu #vertebrates="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="exit">Fishes</button>
+    <button mat-menu-item [matMenuTriggerFor]="exitIcon">Amphibians</button>
+    <button mat-menu-item [matMenuTriggerFor]="exitText">Reptiles</button>
+    <button mat-menu-item>Birds</button>
+    <button mat-menu-item>Mammals</button>
+</mat-menu>
+<!-- --------------------------------------------------------- -->
+<mat-menu #exit="matMenu" class="bg-orange">
+    <button mat-menu-item>
+        Delete <mat-icon>delete</mat-icon>
+    </button>
+    <button mat-menu-item>
+        pass <mat-icon>lock</mat-icon>
+    </button>
+    <button mat-menu-item>
+        ON <mat-icon>check_circle_outline</mat-icon>
+    </button>
+    <button mat-menu-item class="my-auto">
+        off <mat-icon>highlight_off</mat-icon>
+    </button>
+</mat-menu>
+<mat-menu #exitIcon="matMenu" class="bg-orange">
+    <button mat-menu-item>
+         <mat-icon>delete</mat-icon>
+    </button>
+    <button mat-menu-item>
+         <mat-icon>lock</mat-icon>
+    </button>
+    <button mat-menu-item>
+         <mat-icon>check_circle_outline</mat-icon>
+    </button>
+    <button mat-menu-item class="my-auto">
+         <mat-icon>highlight_off</mat-icon>
+    </button>
+</mat-menu>
+
+<mat-menu #exitText="matMenu" class="bg-orange">
+    <button mat-menu-item>
+        Delete 
+    </button>
+    <button mat-menu-item>
+        pass
+    </button>
+    <button mat-menu-item>
+        ON 
+    </button>
+    <button mat-menu-item class="my-auto">
+        off 
+    </button>
+</mat-menu>

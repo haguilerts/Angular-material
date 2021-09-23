@@ -1,0 +1,12 @@
+section {
+    mat-card {
+        max-width: 300px;
+        border: 1px solid rgba(129, 77, 77, 0.534);
+        mat-card-content {
+            .mat-card-lg-image {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+}
