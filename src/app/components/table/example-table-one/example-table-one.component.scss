@@ -23,3 +23,127 @@
     text-align: center;
     font-weight: bold;
 }
+
+.mat-row:hover .mat-cell {
+    border-color: rgb(173, 173, 173);
+    background-color: rgba(252, 224, 182, 0.788);
+}
+
+table {
+    width: 100%;
+}
+
+.example-container {
+    height: 400px;
+    width: 550px;
+    max-width: 100%;
+    overflow: auto;
+}
+
+table {
+    width: 800px;
+}
+
+.table-scroll {
+    display: flex;
+    justify-content: center;
+    th {
+        background-color: red;
+        color: blanchedalmond;
+    }
+    td:first-child {
+        width: 130px;
+        background-color: rgb(230, 255, 121);
+        color: blue;
+    }
+}
+
+td.mat-column-star {
+    width: 20px;
+    padding-right: 8px;
+    background-color: rgba(161, 255, 55, 0.712);
+}
+
+th.mat-column-position,
+td.mat-column-position {
+    padding-left: 8px;
+}
+
+.mat-table-sticky-border-elem-right {
+    border-left: 1px solid #e0e0e0;
+}
+
+.mat-table-sticky-border-elem-left {
+    border-right: 1px solid #e0e0e0;
+}
+
+//------------------------------------
+.opcional {
+    .example-container {
+        height: 400px;
+        overflow: auto;
+    }
+    .mat-table-sticky {
+        background: #598dfd;
+        opacity: 1;
+    }
+    .example-sticky-toggle-group {
+        margin: 8px;
+    }
+    .mat-column-filler {
+        padding: 0 8px;
+        font-size: 10px;
+        text-align: center;
+    }
+    .mat-header-cell,
+    .mat-footer-cell,
+    .mat-cell {
+        min-width: 80px;
+        box-sizing: border-box;
+    }
+    .mat-header-row,
+    .mat-footer-row,
+    .mat-row {
+        min-width: 1920px;
+        /* 24 columns, 80px each */
+    }
+    .mat-header-row {
+        background: #f2fd59;
+    }
+    .mat-footer-row {
+        background-color: rgba(72, 255, 0, 0.719);
+    }
+    .mat-table-sticky-border-elem-top {
+        border-bottom: 2px solid midnightblue;
+    }
+    .mat-table-sticky-border-elem-right {
+        border-left: 2px solid midnightblue;
+    }
+    .mat-table-sticky-border-elem-bottom {
+        border-top: 2px solid midnightblue;
+    }
+    .mat-table-sticky-border-elem-left {
+        border-right: 2px solid midnightblue;
+    }
+    .bg-black {
+        color: #ffffff;
+        background-color: black;
+    }
+}
+
+//---------------------------------------------
+.total {
+    .example-container {
+        height: 200px;
+        overflow: auto;
+    }
+    table {
+        width: 100%;
+    }
+    tr.mat-footer-row {
+        font-weight: bold;
+    }
+    .mat-table-sticky {
+        border-top: 1px solid #e0e0e0;
+    }
+}

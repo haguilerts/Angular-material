@@ -30,6 +30,7 @@
 
 
 </article>
+
 <article style="border: 5px dotted red;">
     <section class="d-flex justify-content-around my-3">
         <button mat-raised-button (click)="addColumn()" class="btn btn-outline-primary"> Add column </button>
@@ -40,6 +41,7 @@
             <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
         </mat-form-field>
     </section>
+
     <table style="width: 100%;" mat-table [dataSource]="data" class="mat-elevation-z8">
         <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns1">
             <th mat-header-cell *matHeaderCellDef> {{column}} </th>
@@ -49,4 +51,193 @@
         <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
         <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
     </table>
+</article>
+
+<article style="border: 5px double blue;">
+    <table mat-table [dataSource]="dataSource2" class="mat-elevation-z8">
+
+        <!-- Checkbox Column -->
+        <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+                <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()" [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+                </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row">
+                <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+                </mat-checkbox>
+            </td>
+        </ng-container>
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef> Weight </th>
+            <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+            <th mat-header-cell *matHeaderCellDef> Symbol </th>
+            <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns2"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns2;" (click)="selection.toggle(row)">
+        </tr>
+    </table>
+
+</article>
+
+<article class="table-scroll" style="border: 5px solid yellow;">
+    <div class="example-container mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="name" sticky>
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="weight">
+                <th mat-header-cell *matHeaderCellDef> Weight </th>
+                <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="symbol">
+                <th mat-header-cell *matHeaderCellDef> Symbol </th>
+                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+            </ng-container>
+
+            <!-- Star Column -->
+            <ng-container matColumnDef="star" stickyEnd>
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-icon>more_vert</mat-icon>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns3"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns3;"></tr>
+        </table>
+    </div>
+
+</article>
+
+<article style="border: 5px dotted rgb(0, 253, 42);">
+    <div class="d-flex justify-content-around">
+        <button mat-raised-button color="primary" (click)="tables.push(tables.length)">Add table</button>
+        <button mat-raised-button color="warn" (click)="tables.pop()">Remove table</button>
+    </div>
+
+    <div class="bg-danger text-light">
+        Sticky Headers:
+        <mat-button-toggle-group multiple [value]="['header-1']" #stickyHeaders="matButtonToggleGroup" class="example-sticky-toggle-group">
+            <mat-button-toggle value="header-1"> Row 1 </mat-button-toggle>
+            <mat-button-toggle value="header-2"> Row 2 </mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+
+    <div class="bg-secondary text-light">
+        Sticky Footers:
+        <mat-button-toggle-group multiple [value]="['footer-1']" #stickyFooters="matButtonToggleGroup" class="example-sticky-toggle-group">
+            <mat-button-toggle value="footer-1"> Row 1 </mat-button-toggle>
+            <mat-button-toggle value="footer-2"> Row 2 </mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+
+    <div class="bg-success text-light">
+        Sticky Columns:
+        <mat-button-toggle-group multiple [value]="['position', 'symbol']" #stickyColumns="matButtonToggleGroup" class="example-sticky-toggle-group">
+            <mat-button-toggle value="position"> Position </mat-button-toggle>
+            <mat-button-toggle value="name"> Name </mat-button-toggle>
+            <mat-button-toggle value="weight"> Weight </mat-button-toggle>
+            <mat-button-toggle value="symbol"> Symbol </mat-button-toggle>
+        </mat-button-toggle-group>
+    </div>
+
+    <div class="opcional example-container mat-elevation-z8 w-100">
+        <mat-table class="w-100" [dataSource]="dataSource4" *ngFor="let table of tables">
+            <ng-container matColumnDef="position" [sticky]="isSticky(stickyColumns, 'position')">
+                <mat-header-cell class="text-center" *matHeaderCellDef> Position </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+                <mat-footer-cell *matFooterCellDef> Position Footer </mat-footer-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="name" [sticky]="isSticky(stickyColumns, 'name')">
+                <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                <mat-footer-cell *matFooterCellDef> N-B </mat-footer-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="weight" [stickyEnd]="isSticky(stickyColumns, 'weight')">
+                <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+                <mat-footer-cell *matFooterCellDef> Weight Footer </mat-footer-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="symbol" [stickyEnd]="isSticky(stickyColumns, 'symbol')">
+                <mat-header-cell class="bg-success" *matHeaderCellDef> Symbol </mat-header-cell>
+                <mat-cell class="bg-success" *matCellDef="let element"> {{element.symbol}} </mat-cell>
+                <mat-footer-cell class="bg-success" *matFooterCellDef> SE </mat-footer-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="filler">
+                <mat-header-cell class="text-primary" *matHeaderCellDef> top </mat-header-cell>
+                <mat-cell class="text-secondary" *matCellDef="let element"> data </mat-cell>
+                <mat-footer-cell class="text-primary" *matFooterCellDef> butt.. </mat-footer-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns4; sticky: isSticky(stickyHeaders, 'header-1')"></mat-header-row>
+            <mat-header-row class="bg-black" *matHeaderRowDef="displayedColumns4; sticky: isSticky(stickyHeaders, 'header-2')"></mat-header-row>
+
+            <mat-row *matRowDef="let row; columns: displayedColumns4;"></mat-row>
+
+            <mat-footer-row class="bg-black" *matFooterRowDef="displayedColumns4; sticky: isSticky(stickyFooters, 'footer-2')"></mat-footer-row>
+            <mat-footer-row *matFooterRowDef="displayedColumns4; sticky: isSticky(stickyFooters, 'footer-1')"></mat-footer-row>
+        </mat-table>
+    </div>
+
+</article>
+<article>
+    <div class=" total example-container mat-elevation-z8 w-100">
+        <table class="w-100" mat-table [dataSource]="transactions">
+            <!-- Item Column -->
+            <ng-container matColumnDef="item">
+                <th mat-header-cell *matHeaderCellDef> Item </th>
+                <td mat-cell *matCellDef="let transaction"> {{transaction.item}} </td>
+                <td mat-footer-cell *matFooterCellDef> Total </td>
+            </ng-container>
+
+            <!-- Cost Column -->
+            <ng-container matColumnDef="cost">
+                <th mat-header-cell *matHeaderCellDef> Cost </th>
+                <td mat-cell *matCellDef="let transaction"> {{transaction.cost | currency}} </td>
+                <td mat-footer-cell *matFooterCellDef> {{getTotalCost() | currency}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns5"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns5;"></tr>
+            <tr mat-footer-row *matFooterRowDef="displayedColumns5; sticky: true"></tr>
+        </table>
+    </div>
+
 </article>

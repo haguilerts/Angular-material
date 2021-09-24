@@ -47,6 +47,7 @@ import { PasoPasoComponent } from './components/paso-paso/paso-paso.component';
 
 import {MatStepperModule} from '@angular/material/stepper';
 import { ExampleTableOneComponent } from './components/table/example-table-one/example-table-one.component';
+import { TabsComponent } from './components/tabs/tabs.component';
 
 enableProdMode();
 
@@ -81,6 +82,7 @@ enableProdMode();
     TableNewExampleComponent,
     PasoPasoComponent,
     ExampleTableOneComponent,
+    TabsComponent,
   ],
   imports: [
     BrowserModule,
