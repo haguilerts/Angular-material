@@ -1,1 +1,214 @@
-<p>tabs works!</p>
+<section>
+    <mat-tab-group mat-align-tabs="start">
+
+        <mat-tab label="Primera">
+            <div class="bg-danger text-light p-4">
+                1) Las pestañas de Angular Material organizan el contenido en vistas separadas donde solo una vista puede ser visible a la vez. La etiqueta de cada pestaña se muestra en el encabezado de la pestaña y la etiqueta de la pestaña activa se designa con la
+                barra de tinta animada. Cuando la lista de etiquetas de pestañas excede el ancho del encabezado, aparecen controles de paginación que permiten al usuario desplazarse hacia la izquierda y hacia la derecha por las etiquetas.
+            </div>
+
+        </mat-tab>
+        <mat-tab label="segunda">
+            <div class="text-center text-primary p-4">
+                2) La pestaña activa se puede configurar usando la selectedIndexentrada o cuando el usuario selecciona una de las etiquetas de pestaña en el encabezado.
+            </div>
+        </mat-tab>
+        <mat-tab label="tercera">
+            <div class="text-center text-primary p-4">
+                2) La pestaña activa se puede configurar usando la selectedIndexentrada o cuando el usuario selecciona una de las etiquetas de pestaña en el encabezado.
+            </div>
+        </mat-tab>
+        <mat-tab label="ultima">
+            <div class="bg-secondary text-light p-4">
+                3) Eventos <br> El selectedTabChangeevento de salida se emite cuando cambia la pestaña activa. El focusChangeevento de salida se emite cuando el usuario pone el foco en cualquiera de las etiquetas de pestaña en el encabezado, generalmente
+                a través de la navegación con el teclado.
+            </div>
+        </mat-tab>
+
+    </mat-tab-group>
+
+</section>
+<section>
+    <mat-tab-group dynamicHeight="2" mat-align-tabs="center">
+        <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">thumb_up</mat-icon>
+            First
+        </ng-template>
+    </mat-tab-group>
+
+    <h3>mat-align-tabs="center"</h3>
+    <mat-tab-group mat-align-tabs="center">
+        <mat-tab label="First">
+            <article>
+                <img src="https://www.wallpapertip.com/wmimgs/12-128766_user-uploaded-image-dragon-ball-z-kai-wallpaper.jpg" alt="...">
+            </article>
+        </mat-tab>
+        <mat-tab label="Second">
+            <article>
+                <img src="https://laverdadnoticias.com/__export/1594676990295/sites/laverdad/img/2020/07/13/dragon_ball_z_personajes.jpg_1902800913.jpg" alt="...">
+            </article>
+        </mat-tab>
+        <mat-tab label="Third">
+            <article>
+                <img src="https://as.com/meristation/imagenes/2020/01/15/noticias/1579084668_612285_1579085061_noticia_normal.jpg" alt="...">
+            </article>
+        </mat-tab>
+    </mat-tab-group>
+
+    <h3>mat-align-tabs="end"</h3>
+    <mat-tab-group mat-align-tabs="end">
+        <mat-tab label="First">
+            <article>
+                <img src="https://www.wallpapertip.com/wmimgs/12-128766_user-uploaded-image-dragon-ball-z-kai-wallpaper.jpg" alt="...">
+            </article>
+        </mat-tab>
+        <mat-tab label="Second">
+            <article>
+                <img src="https://laverdadnoticias.com/__export/1594676990295/sites/laverdad/img/2020/07/13/dragon_ball_z_personajes.jpg_1902800913.jpg" alt="...">
+            </article>
+        </mat-tab>
+        <mat-tab label="Third">
+            <article>
+                <img src="https://as.com/meristation/imagenes/2020/01/15/noticias/1579084668_612285_1579085061_noticia_normal.jpg" alt="...">
+            </article>
+        </mat-tab>
+    </mat-tab-group>
+
+    <h3>animationDuration="2000ms"</h3>
+    <mat-tab-group animationDuration="2000ms">
+        <mat-tab label="First">
+            <article>
+                <img src="https://www.wallpapertip.com/wmimgs/12-128766_user-uploaded-image-dragon-ball-z-kai-wallpaper.jpg" alt="...">
+            </article>
+        </mat-tab>
+        <mat-tab label="Second">
+            <article>
+                <img src="https://laverdadnoticias.com/__export/1594676990295/sites/laverdad/img/2020/07/13/dragon_ball_z_personajes.jpg_1902800913.jpg" alt="...">
+            </article>
+        </mat-tab>
+        <mat-tab label="Third">
+            <article>
+                <img src="https://as.com/meristation/imagenes/2020/01/15/noticias/1579084668_612285_1579085061_noticia_normal.jpg" alt="...">
+            </article>
+        </mat-tab>
+    </mat-tab-group>
+
+    <h3>ng-container personalizado</h3>
+    <ng-container *ngIf="(asyncTabs | async) === null">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            Cargando... {{ time/1000 | json}}
+            <mat-spinner value="determinate" color="warn"></mat-spinner>
+        </div>
+
+    </ng-container>
+    <mat-tab-group mat-align-tabs="center">
+        <mat-tab *ngFor="let tab of asyncTabs | async; let i=index ">
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon">{{icon[i]}}</mat-icon>
+                {{i}}, {{tab.label}}
+            </ng-template>
+            <article>
+                <img class="img" [src]="tab.content" alt="..">
+
+            </article>
+        </mat-tab>
+    </mat-tab-group>
+</section>
+
+<section>
+    <h3>img peronalizado random</h3>
+    <mat-form-field appearance="fill">
+        <mat-label>Selected tab index</mat-label>
+        <input matInput type="number" [formControl]="selected">
+    </mat-form-field>
+    <div>
+        <button mat-raised-button class="example-add-tab-button" (click)="addTab(selectAfterAdding.checked)">
+          Add new tab
+        </button>
+        <mat-checkbox #selectAfterAdding> Select tab after adding </mat-checkbox>
+    </div>
+    <mat-tab-group [selectedIndex]="selected.value" (selectedIndexChange)="selected.setValue($event)">
+        <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">
+            <article class="flex-column">
+                <h4>{{index}} Contents for {{tab}} tab</h4>
+                <img src="https://picsum.photos/500/500/?randon" alt="..." class="w-50">
+                <button mat-raised-button class="example-delete-tab-button" [disabled]="tabs.length === 1" (click)="removeTab(index)">
+                    Eliminar <mat-icon color="warn">delete</mat-icon>
+                  </button>
+            </article>
+
+
+        </mat-tab>
+    </mat-tab-group>
+
+    <h3>headerPosition="below"</h3>
+    <mat-divider></mat-divider>
+    <mat-tab-group headerPosition="below">
+        <mat-tab label="First"> Content 1 </mat-tab>
+        <mat-tab label="Second"> Content 2 </mat-tab>
+        <mat-tab label="Third"> Content 3 </mat-tab>
+    </mat-tab-group>
+
+    <h3>matTabContent / mat-stretch-tabs</h3>
+    <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+        <mat-tab label="First">
+            <ng-template matTabContent>
+                Content 1 - Loaded: {{getTimeLoaded(1) | date:'medium'}}
+            </ng-template>
+        </mat-tab>
+        <mat-tab label="Second">
+            <ng-template matTabContent>
+                Content 2 - Loaded: {{getTimeLoaded(2) | date:'medium'}}
+            </ng-template>
+        </mat-tab>
+        <mat-tab label="tercero">
+            <ng-template matTabContent>
+                Content 3 - Loaded: {{getTimeLoaded(2) | date:'medium'}}
+            </ng-template>
+        </mat-tab>
+        <mat-tab label="cuarto">
+            <ng-template matTabContent>
+                Content 4 - Loaded: {{getTimeLoaded(2) | date:'medium'}}
+            </ng-template>
+        </mat-tab>
+        <mat-tab label="quinto">
+            <ng-template matTabContent>
+                Content 5 - Loaded: {{getTimeLoaded(3) | date:'medium'}}
+            </ng-template>
+        </mat-tab>
+        <mat-tab label="ultimo">
+            <ng-template matTabContent>
+                Content 5 - Loaded: {{getTimeLoaded(3) | date:'medium'}}
+            </ng-template>
+        </mat-tab>
+    </mat-tab-group>
+
+</section>
+<section>
+    <div class=" d-flex justify-content-around">
+        <div class="align-self-center">
+            <span class="example-button-toggle-label fw-bold"> Color </span>
+            <mat-button-toggle-group #colorToggle="matButtonToggleGroup" value="primary" aria-label="Change color">
+                <mat-button-toggle value="primary" class="btn btn-primary"> Primary </mat-button-toggle>
+                <mat-button-toggle value="warn" class="btn btn-dark"> warn </mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+
+        <div>
+            <span class="example-button-toggle-label fw-bold"> Background Color </span>
+            <mat-button-toggle-group #backgroundColorToggle="matButtonToggleGroup" value="primary" aria-label="Change color">
+                <mat-button-toggle value="primary"> Primary </mat-button-toggle>
+                <mat-button-toggle value="warn"> warn </mat-button-toggle>
+                <mat-button-toggle value="accent"> Accent </mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
+    </div>
+
+
+    <mat-tab-group [color]="colorToggle.value" [backgroundColor]="backgroundColorToggle.value">
+        <mat-tab label="First"> Content 1 </mat-tab>
+        <mat-tab label="Second"> Content 2 </mat-tab>
+        <mat-tab label="Third"> Content 3 </mat-tab>
+    </mat-tab-group>
+
+</section>
