@@ -48,6 +48,9 @@ import { PasoPasoComponent } from './components/paso-paso/paso-paso.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import { ExampleTableOneComponent } from './components/table/example-table-one/example-table-one.component';
 import { TabsComponent } from './components/tabs/tabs.component';
+import { TreeComponent } from './components/tree/tree.component';
+import { TreeExample1Component } from './components/tree/tree-example1/tree-example1.component';
+import { TreeExample2Component } from './components/tree/tree-example2/tree-example2.component';
 
 enableProdMode();
 
@@ -83,6 +86,9 @@ enableProdMode();
     PasoPasoComponent,
     ExampleTableOneComponent,
     TabsComponent,
+    TreeComponent,
+    TreeExample1Component,
+    TreeExample2Component,
   ],
   imports: [
     BrowserModule,

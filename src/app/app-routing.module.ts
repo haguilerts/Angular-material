@@ -3,10 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './shader/home/home.component';
 
 const routes: Routes = [
-  {path:'', pathMatch:'full',redirectTo:'home'},
-  {path:'home', component: HomeComponent},
+  {path:'', pathMatch:'full',redirectTo:'/'},
+  {path:'', component: HomeComponent},
   /* {path:'perfil', component: MostraPerfilComponent}, */
-  {path:'**', redirectTo:'home'},
+  {path:'**', redirectTo:'/'},
 ];
 
 @NgModule({
